@@ -1,0 +1,38 @@
+{
+  "name": "updates-service",
+  "description": "> Project description",
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=6.13.0"
+  },
+  "scripts": {},
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "faker": "^4.1.0",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "morgan": "^1.9.1",
+    "prettier": "^1.14.3"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FEC-RSG/updates-service.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/FEC-RSG/updates-service/issues"
+  },
+  "homepage": "https://github.com/FEC-RSG/updates-service#readme"
+}
