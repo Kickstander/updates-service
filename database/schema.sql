@@ -13,6 +13,8 @@ CREATE TABLE updates
   body        TEXT        NOT NULL,
   likes       INT         unsigned,
   pub_date    DATETIME    NOT NULL,
+  createdAt   DATE,
+  updatedAt   DATE,
   PRIMARY KEY (id)
 );
 
