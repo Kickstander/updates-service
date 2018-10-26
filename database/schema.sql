@@ -54,3 +54,8 @@ VALUES
 -- WHERE projects.owner_id = users.user_id AND updates.posted_by = users.user_id;
 
 -- mysql -u root < database/schema.sql
+
+LOAD DATA INFILE 'seeding/users.txt' INTO TABLE users
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\r'
+  IGNORE 1 LINES;
