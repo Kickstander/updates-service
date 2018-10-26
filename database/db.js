@@ -1,7 +1,7 @@
 const DATABASE = 'kickstarter';
 const USERNAME = 'root';
-
 const Sequelize = require('sequelize');
+
 const sequelize = new Sequelize({
   database: DATABASE,
   username: USERNAME,
@@ -38,21 +38,18 @@ const Project = sequelize.define('project', {
 Project.belongsTo(User, { foreignKey: 'ownerId' });
 Project.sync();
 
-const Updates = sequelize.define('update', {
+const Update = sequelize.define('update', {
   id: { type: Sequelize.INTEGER, primaryKey: true },
   title: { type: Sequelize.STRING },
-  body: { type: Sequelize.STRING },
+  body: { type: Sequelize.TEXT },
   likes: { type: Sequelize.INTEGER },
-  pubDate: { type: Sequelize.INTEGER }
+  pubDate: { type: Sequelize.DATE }
 });
 
-Updates.belongsTo(User, { foreignKey: 'postedBy' });
-Updates.belongsTo(Project, { foreignKey: 'projectId' });
-Updates.sync();
-// .then(() => {
-//   Updates.findAll().then(updates => console.log(updates));
-// });
+Update.belongsTo(User, { foreignKey: 'postedBy' });
+Update.belongsTo(Project, { foreignKey: 'projectId' });
+Update.sync();
 
-// let Users = sequelize.define('users', {
-
-// })
+exports.User = User;
+exports.Project = Project;
+exports.Update = Update;

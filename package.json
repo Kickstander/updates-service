@@ -9,8 +9,9 @@
   "scripts": {
     "build": "webpack",
     "start": "nodemon server/server.js",
-    "schema": "mysql -u root <database/schema.sql",
-    "db": "node database/db.js"
+    "dropdb": "mysql -u root <database/schema.sql",
+    "manualdb": "mysql -u root",
+    "seed": "node database/seedGenerator.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

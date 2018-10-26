@@ -1,9 +1,10 @@
 const faker = require('faker');
-const fs = require('fs');
+// const fs = require('fs');
+const model = require('./db.js');
 
-const USERS_HEADERS = "user_id,user_name";
-const PROJECTS_HEADERS = "project_id,project_name,owner_id";
-const UPDATES_HEADERS = "id,title,posted_by,project,body,likes,pub_date,createdAt,updatedAt";
+const USERS_HEADERS = "userId,userName";
+const PROJECTS_HEADERS = "projectId,projectName,ownerId";
+const UPDATES_HEADERS = "id,title,postedBy,projectId,body,likes,pubDate,createdAt,updatedAt";
 const LIKES_LIMIT = 500;
 const BODY_PARAGRAPH_MAX = 15;
 const BODY_PARAGRAPH_MIN = 2;
@@ -11,14 +12,14 @@ const MIN_UPDATES = 0;
 const MAX_UPDATES = 10;
 const KICKSTARTER_FOUNDED = new Date(2009, 3, 28);
 
-var updateCount = 0;
+let updateCount = 0;
 
 function getName() {
   return faker.name.findName();
 }
 
-function getLikes(upperLimit) {
-  return Math.floor(Math.random() * upperLimit);
+function getLikes() {
+  return Math.floor(Math.random() * LIKES_LIMIT);
 }
 
 function getUpdateBody() {
@@ -53,27 +54,34 @@ function formatDateForSQL(date) {
   return `${year}-${month}-${day} ${'00'}:${'00'}:${'00'}`;
 }
 
-function generateUserData(userIdx) {
-  return [userIdx, getName()];
+function generateUserData(userId) {
+  return {
+    userId,
+    userName: getName()
+  };
 }
 
-function generateProjectData(userIdx, projectIdx) {
-  return [projectIdx, getTitle(), userIdx];
+function generateProjectData(ownerId, projectId) {
+  return {
+    ownerId,
+    projectId,
+    projectName: getTitle()
+  };
 }
 
-function getUpdateData(userIdx, projectIdx) {
+function getUpdateData(postedBy, projectId) {
   const date = randomDate(KICKSTARTER_FOUNDED, new Date());
   updateCount += 1;
 
-  return [
-    updateCount,
-    getTitle(),
-    userIdx,
-    projectIdx,
-    getUpdateBody(),
-    getLikes(LIKES_LIMIT),
-    formatDateForSQL(date)
-  ];
+  return {
+    postedBy,
+    projectId,
+    title: getTitle(),
+    id: updateCount,
+    body: getUpdateBody(),
+    likes: getLikes(),
+    pubDate: formatDateForSQL(date)
+  };
 }
 
 function generateUpdates(userIdx, projectIdx) {
@@ -86,38 +94,42 @@ function generateUpdates(userIdx, projectIdx) {
   return updates;
 }
 
-function generateAllSeedStrings(num) {
+function generateAllSeedData(num) {
   const data = {
-    users: [USERS_HEADERS],
-    projects: [PROJECTS_HEADERS],
-    updates: [UPDATES_HEADERS]
+    users: [],
+    projects: [],
+    updates: []
   };
 
   for (let i = 1; i <= num; i += 1) {
-    data.users.push(generateUserData(i).join(';'));
-    data.projects.push(generateProjectData(i, i).join(';'));
+    data.users.push(generateUserData(i));
+    data.projects.push(generateProjectData(i, i));
 
     generateUpdates(i, i).forEach(update => {
-      data.updates.push(update.join(';'));
+      data.updates.push(update);
     });
   }
 
   return data;
 }
 
-let data = generateAllSeedStrings(100);
+const data = generateAllSeedData(100);
 
-fs.writeFile('seeding/users.txt', data.users.join('\r'), err => {
-  if (err) throw err;
-  console.log('file saved!');
-});
+model.User.bulkCreate(data.users);
+model.Project.bulkCreate(data.projects);
+model.Update.bulkCreate(data.updates);
 
-fs.writeFile('seeding/projects.txt', data.projects.join('\r'), err => {
-  if (err) throw err;
-  console.log('file saved!');
-});
+// fs.writeFile('database/users.txt', data.users.join('\r'), err => {
+//   if (err) throw err;
+//   console.log('file saved!');
+// });
 
-fs.writeFile('seeding/updates.txt', data.updates.join('\r'), err => {
-  if (err) throw err;
-  console.log('file saved!');
-});
+// fs.writeFile('database/projects.txt', data.projects.join('\r'), err => {
+//   if (err) throw err;
+//   console.log('file saved!');
+// });
+
+// fs.writeFile('database/updates.txt', data.updates.join('\r'), err => {
+//   if (err) throw err;
+//   console.log('file saved!');
+// });
