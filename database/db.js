@@ -9,9 +9,9 @@ const sequelize = new Sequelize({
   host: 'localhost',
   dialect: 'mysql',
   define: {
-    freezeTableName: true,
-    notNull: true
-  }
+    allowNull: false
+  },
+  sync: { force: true }
 });
 
 sequelize
@@ -20,22 +20,39 @@ sequelize
     console.log('MYSQL connection has been established...');
   })
   .catch(err => {
-    console.err('Unable to connect to the database:', err);
+    console.error('Unable to connect to the database:', err);
   });
 
-let Updates = sequelize.define('updates', {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true
-  },
-  title: { type: Sequelize.STRING },
-  posted_by: { type: Sequelize.STRING },
-  project: { type: Sequelize.STRING },
-  body: { type: Sequelize.STRING },
-  likes: { type: Sequelize.INTEGER },
-  pub_date: { type: Sequelize.INTEGER }
+const User = sequelize.define('user', {
+  userId: { type: Sequelize.INTEGER, primaryKey: true },
+  userName: { type: Sequelize.STRING(100) }
 });
 
-Updates.sync().then(() => {
-  Updates.findAll().then(updates => console.log(updates));
+User.sync();
+
+const Project = sequelize.define('project', {
+  projectId: { type: Sequelize.INTEGER, primaryKey: true },
+  projectName: { type: Sequelize.STRING }
 });
+
+Project.belongsTo(User, { foreignKey: 'ownerId' });
+Project.sync();
+
+const Updates = sequelize.define('update', {
+  id: { type: Sequelize.INTEGER, primaryKey: true },
+  title: { type: Sequelize.STRING },
+  body: { type: Sequelize.STRING },
+  likes: { type: Sequelize.INTEGER },
+  pubDate: { type: Sequelize.INTEGER }
+});
+
+Updates.belongsTo(User, { foreignKey: 'postedBy' });
+Updates.belongsTo(Project, { foreignKey: 'projectId' });
+Updates.sync();
+// .then(() => {
+//   Updates.findAll().then(updates => console.log(updates));
+// });
+
+// let Users = sequelize.define('users', {
+
+// })

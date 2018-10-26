@@ -9,7 +9,8 @@
   "scripts": {
     "build": "webpack",
     "start": "nodemon server/server.js",
-    "schema": "mysql -u root <database/schema.sql"
+    "schema": "mysql -u root <database/schema.sql",
+    "db": "node database/db.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
