@@ -11,7 +11,8 @@
     "start": "nodemon server/server.js",
     "dropdb": "mysql -u root <database/schema.sql",
     "manualdb": "mysql -u root",
-    "seed": "node database/seedGenerator.js"
+    "seed": "node database/seedGenerator.js",
+    "test": "jest"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -36,6 +37,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0",
     "morgan": "^1.9.1",
     "prettier": "^1.14.3",
     "style-loader": "^0.23.1",
