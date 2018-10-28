@@ -7,6 +7,7 @@ function App(props) {
     <div>
       <div>REACT SAYS HI!</div>
       <div>{props.data[0].title}</div>
+      <div>{props.data[0].body}</div>
     </div>
   );
 }
