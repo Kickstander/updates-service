@@ -1,3 +1,57 @@
 .title {
   color: red;
 }
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+}
+
+.wrapper > div {
+  background: #eee;
+  padding: 1em;
+}
+
+.wrapper > div:nth-child(odd) {
+  background:#ddd;
+}
+
+.preview-container {
+  width: 100%;
+  height: 200px;
+  border: 2px solid black;
+}
+
+.preview {
+  width: 50%;
+  /* border: 2px solid blue; */
+  height: 200px;
+}
+
+.preview-left {
+  border-right: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.preview-right {
+  border-left: 1px solid lightgray;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.left {
+
+}
+
+.preview-header {
+  display: flex;
+}
+
+.preview-title {
+
+}
