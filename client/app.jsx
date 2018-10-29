@@ -1,11 +1,12 @@
 const React = require('react');
 const ReactDom = require('react-dom');
 const dummyData = require('./dummyData.json');
+const css = require('./app.css');
 
 function App(props) {
   return (
     <div>
-      <div>REACT SAYS HI!</div>
+      <div className='title'>REACT SAYS HI!</div>
       <div>{props.data[0].title}</div>
       <div>{props.data[0].body}</div>
     </div>
