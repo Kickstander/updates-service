@@ -1,9 +1,10 @@
 const React = require('react');
+const PropTypes = require('prop-types');
 
-function Preview(props) {
+function Preview({ side }) {
   let dateHeader;
 
-  if (props.side === 'left') {
+  if (side === 'left') {
     dateHeader = (
       <div className="preview-header">
         <div className="date">Date</div>
@@ -24,8 +25,8 @@ function Preview(props) {
   }
 
   return (
-    <div className={`preview-container ${props.side}`}>
-      <div className={`preview preview-${props.side}`}>
+    <div className={`preview-container ${side}`}>
+      <div className={`preview preview-${side}`}>
         {dateHeader}
         <div className="preview-main">
           <div className="preview-title">Title of Update</div>
@@ -36,5 +37,13 @@ function Preview(props) {
     </div>
   );
 }
+
+Preview.defaultProps = {
+  side: 'left'
+};
+
+Preview.propTypes = {
+  side: PropTypes.string
+};
 
 module.exports = Preview;

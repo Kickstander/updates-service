@@ -1,10 +1,12 @@
+/* eslint-env browser */
+
 const React = require('react');
 const ReactDom = require('react-dom');
 const dummyData = require('./dummyData.json');
 const css = require('./app.css');
 const Preview = require('./components/preview.jsx');
 
-function App(props) {
+function App() {
   return (
     <div>
       <div className="wrapper">
