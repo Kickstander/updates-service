@@ -12,6 +12,9 @@ function App(props) {
         <div className="previews-container">
           <Preview side="left" />
           <Preview side="right" />
+          <Preview side="left" />
+          <Preview side="left" />
+          <Preview side="right" />
         </div>
         <div>Right Margin</div>
       </div>
