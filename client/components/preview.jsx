@@ -11,15 +11,13 @@ function Preview({ side, update }) {
     sidePreviewStyle = styles.previewLeft;
     sideStyle = styles.left;
   } else {
-    sidePreviewStyle = styles.previewRight;
+    sidePreviewStyle = '';
     sideStyle = styles.right;
   }
 
-  // {update.pubDate}
-
   if (side === 'Left') {
     dateHeader = (
-      <div className={styles.previewHeader}>
+      <div className={styles.header}>
         <div className={styles.date}>{update.pubDate}</div>
         <div className={styles.spacerContainer}>
           <div className={styles.spacerLine} />
@@ -28,7 +26,7 @@ function Preview({ side, update }) {
     );
   } else {
     dateHeader = (
-      <div className={styles.previewHeader}>
+      <div className={styles.header}>
         <div className={styles.spacerContainer}>
           <div className={styles.spacerLine} />
         </div>
@@ -38,13 +36,13 @@ function Preview({ side, update }) {
   }
 
   return (
-    <div className={`${styles.previewContainer} ${sideStyle}`}>
+    <div className={sideStyle}>
       <div className={`${styles.entry} ${sidePreviewStyle}`}>
         {dateHeader}
         <div className={styles.previewMain}>
-          <div className={styles.previewTitle}>{update.title}</div>
-          <div className={styles.previewBody}>{update.body}</div>
-          <div className={styles.previewFooter}>{`Comments Hard Likes ${update.likes}`}</div>
+          <div className={styles.title}>{update.title}</div>
+          <div className={styles.body}>{update.body.split('</p>')[0]}</div>
+          <div className={styles.footer}>{`Comments 12 ${update.likes}`}</div>
         </div>
       </div>
     </div>
@@ -52,7 +50,8 @@ function Preview({ side, update }) {
 }
 
 Preview.defaultProps = {
-  side: 'left'
+  side: 'left',
+  update: {}
 };
 
 Preview.propTypes = {
