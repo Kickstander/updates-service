@@ -1,31 +1,26 @@
 /* eslint-env browser */
+import styles from './app.css';
 
 const React = require('react');
 const ReactDom = require('react-dom');
 const dummyData = require('./dummyData.json');
-const css = require('./app.css');
 const Preview = require('./components/preview.jsx');
 
 function App() {
   return (
     <div>
-      <div className="wrapper">
+      <div className={styles.wrapper}>
         <div>Left Margin</div>
-        <div className="previews-container">
-          <Preview side="left" />
-          <Preview side="right" />
-          <Preview side="left" />
-          <Preview side="left" />
-          <Preview side="right" />
+        <div className={styles['previews-container']}>
+          <Preview side="Left" />
+          <Preview side="Right" />
+          <Preview side="Left" />
+          <Preview side="Left" />
+          <Preview side="Right" />
         </div>
         <div>Right Margin</div>
       </div>
     </div>
-    // <div>
-    //   <div className='title'>REACT SAYS HI!</div>
-    //   <div>{props.data[0].title}</div>
-    //   <div>{props.data[0].body}</div>
-    // </div>
   );
 }
 

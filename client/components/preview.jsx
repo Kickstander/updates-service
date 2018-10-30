@@ -1,37 +1,48 @@
-const React = require('react');
 const PropTypes = require('prop-types');
+const React = require('react');
+const styles = require('./preview.css');
 
 function Preview({ side }) {
   let dateHeader;
+  let sidePreviewStyle;
+  let sideStyle;
 
-  if (side === 'left') {
+  if (side === 'Left') {
+    sidePreviewStyle = styles.previewLeft;
+    sideStyle = styles.left;
+  } else {
+    sidePreviewStyle = styles.previewRight;
+    sideStyle = styles.right;
+  }
+
+  if (side === 'Left') {
     dateHeader = (
-      <div className="preview-header">
-        <div className="date">Date</div>
-        <div className="spacer-container">
-          <div className="spacer-line" />
+      <div className={styles.previewHeader}>
+        <div className={styles.date}>Date</div>
+        <div className={styles.spacerContainer}>
+          <div className={styles.spacerLine} />
         </div>
       </div>
     );
   } else {
     dateHeader = (
-      <div className="preview-header">
-        <div className="spacer-container">
-          <div className="spacer-line" />
+      <div className={styles.previewHeader}>
+        <div className={styles.spacerContainer}>
+          <div className={styles.spacerLine} />
         </div>
-        <div className="date">Date</div>
+        <div className={styles.date}>Date</div>
       </div>
     );
   }
 
   return (
-    <div className={`preview-container ${side}`}>
-      <div className={`preview preview-${side}`}>
+    <div className={`${styles.previewContainer} ${sideStyle}`}>
+      <div className={`${styles.entry} ${sidePreviewStyle}`}>
         {dateHeader}
-        <div className="preview-main">
-          <div className="preview-title">Title of Update</div>
-          <div className="preview-body">Some body text here</div>
-          <div className="preview-footer">Comments Likes</div>
+        <div className={styles.previewMain}>
+          <div className={styles.previewTitle}>Title of Update</div>
+          <div className={styles.previewBody}>Some body text here</div>
+          <div className={styles.previewFooter}>Comments Likes</div>
         </div>
       </div>
     </div>

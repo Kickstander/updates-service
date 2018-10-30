@@ -1,0 +1,57 @@
+.entry {
+  width: 50%;
+  height: 200px;
+}
+
+.previewLeft {
+  border-right: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.previewRight {
+  border-left: 1px solid lightgray;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.left {
+  /* Don't know why, timeline is off by 1 px if I don't do the 1px padding below... */
+  display: flex;
+  justify-content: flex-start;
+}
+
+.previewHeader {
+  display: flex;
+  align-items: center;
+}
+
+.previewMain {
+  padding: 10px 80px;
+}
+
+.spacerContainer {
+  height: 100%;
+  /* width + date padding must === preview-main padding */
+  width: 60px;
+}
+
+.spacerLine {
+  width: 100%;
+  height: 50%;
+  border-bottom: 1px solid lightgray;
+}
+
+.date {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.previewTitle {
+  font-family: "Cooper Light", Georgia, serif;
+  font-size: 30px;
+}
