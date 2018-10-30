@@ -37,7 +37,6 @@ START COMPONENT CSS
 .preview {
   width: 50%;
   height: 200px;
-  padding: 10px 80px;
 }
 
 .preview-left {
@@ -62,6 +61,29 @@ START COMPONENT CSS
 
 .preview-header {
   display: flex;
+  align-items: center;
+}
+
+.preview-main {
+  padding: 10px 80px;
+}
+
+.spacer-container {
+  background-color: blue;
+  height: 100%;
+  /* width + date padding must === preview-main padding */
+  width: 60px;
+}
+
+.spacer-line {
+  width: 100%;
+  height: 50%;
+  border-bottom: 1px solid lightgray;
+}
+
+.date {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .preview-title {
