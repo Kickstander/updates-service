@@ -10,7 +10,7 @@
 
 .entry {
   width: 50%;
-  height: 200px;
+  border-left: 1px solid lightgray;
 }
 
 .previewLeft {
@@ -18,10 +18,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-}
-
-.previewRight {
-  border-left: 1px solid lightgray;
+  padding-left: -1px;
 }
 
 .right {
@@ -30,12 +27,11 @@
 }
 
 .left {
-  /* Don't know why, timeline is off by 1 px if I don't do the 1px padding below... */
   display: flex;
   justify-content: flex-start;
 }
 
-.previewHeader {
+.header {
   display: flex;
   align-items: center;
 }
@@ -64,19 +60,17 @@
   font-weight: 700;
 }
 
-.previewTitle {
+.title {
   font-family: "Cooper Light", Georgia, serif;
   font-size: 24px;
 }
 
-.previewBody {
+.body {
   font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
 
-.previewFooter {
+.footer {
   font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
-
-/* "Maison Neue Book", "Helvetica Neue", Helvetica, Arial */
