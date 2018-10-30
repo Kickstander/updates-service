@@ -8,7 +8,7 @@ const UPDATES_HEADERS = "id,title,postedBy,projectId,body,likes,pubDate,createdA
 const LIKES_LIMIT = 500;
 const BODY_PARAGRAPH_MAX = 15;
 const BODY_PARAGRAPH_MIN = 2;
-const MIN_UPDATES = 0;
+const MIN_UPDATES = 2;
 const MAX_UPDATES = 10;
 const KICKSTARTER_FOUNDED = new Date(2009, 3, 28);
 
