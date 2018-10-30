@@ -12,7 +12,12 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [{ loader: 'style-loader' }, { loader: 'css-loader', options: { modules: true } }]
+        loader: 'style-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        query: { modules: true }
       },
       {
         test: /\.(js|jsx)$/,
