@@ -5,10 +5,15 @@ import styles from './app.css';
 
 const React = require('react');
 const ReactDom = require('react-dom');
-const dummyData = require('./dummyData.json');
 const Preview = require('./components/preview.jsx');
 
 const projectId = 2;
+
+// var random_boolean = Math.random() >= 0.5;
+
+const randomSide = () => {
+  return Math.random() >= 0.5 ? 'Left' : 'Right';
+}
 
 function App({ updates }) {
   return (
@@ -16,7 +21,9 @@ function App({ updates }) {
       <div className={styles.wrapper}>
         <div>Left Margin</div>
         <div className={styles['previews-container']}>
-          <Preview update={updates[0]} side="Left" />
+          {updates.map(update => (
+            <Preview update={update} side={randomSide()} id={update.id} />
+          ))}
         </div>
         <div>Right Margin</div>
       </div>
