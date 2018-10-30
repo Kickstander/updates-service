@@ -2,7 +2,7 @@ const PropTypes = require('prop-types');
 const React = require('react');
 const styles = require('./preview.css');
 
-function Preview({ side }) {
+function Preview({ side, update }) {
   let dateHeader;
   let sidePreviewStyle;
   let sideStyle;
@@ -15,10 +15,12 @@ function Preview({ side }) {
     sideStyle = styles.right;
   }
 
+  // {update.pubDate}
+
   if (side === 'Left') {
     dateHeader = (
       <div className={styles.previewHeader}>
-        <div className={styles.date}>Date</div>
+        <div className={styles.date}>{update.pubDate}</div>
         <div className={styles.spacerContainer}>
           <div className={styles.spacerLine} />
         </div>
@@ -30,7 +32,7 @@ function Preview({ side }) {
         <div className={styles.spacerContainer}>
           <div className={styles.spacerLine} />
         </div>
-        <div className={styles.date}>Date</div>
+        <div className={styles.date}>{update.pubDate}</div>
       </div>
     );
   }
@@ -40,9 +42,9 @@ function Preview({ side }) {
       <div className={`${styles.entry} ${sidePreviewStyle}`}>
         {dateHeader}
         <div className={styles.previewMain}>
-          <div className={styles.previewTitle}>Title of Update</div>
-          <div className={styles.previewBody}>Some body text here</div>
-          <div className={styles.previewFooter}>Comments Likes</div>
+          <div className={styles.previewTitle}>{update.title}</div>
+          <div className={styles.previewBody}>{update.body}</div>
+          <div className={styles.previewFooter}>{`Comments Hard Likes ${update.likes}`}</div>
         </div>
       </div>
     </div>
@@ -54,7 +56,8 @@ Preview.defaultProps = {
 };
 
 Preview.propTypes = {
-  side: PropTypes.string
+  side: PropTypes.string,
+  update: PropTypes.object
 };
 
 module.exports = Preview;
