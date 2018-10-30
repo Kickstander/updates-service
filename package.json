@@ -9,7 +9,7 @@
   "scripts": {
     "build": "webpack",
     "start": "nodemon server/server.js",
-    "dropdb": "mysql -u root <database/schema.sql",
+    "dropdb": "mysql -u root < database/schema.sql",
     "manualdb": "mysql -u root",
     "seed": "node database/seedGenerator.js",
     "test": "jest"
