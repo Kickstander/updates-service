@@ -1,6 +1,18 @@
-.title {
-  color: red;
+/************************************
+APPLY BOX SIZING TO EVERYTHING
+************************************/
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
+/************************************
+START COMPONENT CSS
+************************************/
 
 .wrapper {
   display: grid;
@@ -24,8 +36,8 @@
 
 .preview {
   width: 50%;
-  /* border: 2px solid blue; */
   height: 200px;
+  padding: 10px 80px;
 }
 
 .preview-left {
@@ -53,5 +65,5 @@
 }
 
 .preview-title {
-
+  font-size: 30px;
 }
