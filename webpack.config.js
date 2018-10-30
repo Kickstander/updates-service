@@ -22,6 +22,7 @@ module.exports = {
           localIdentName: '[name]__[local]___[hash:base64:5]'
         }
       },
+      { test: /\.(png|woff|woff2|eot|ttf|svg|otf)$/, loader: 'url-loader?limit=100000' },
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
