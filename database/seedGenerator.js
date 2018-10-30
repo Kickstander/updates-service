@@ -25,7 +25,7 @@ function getLikes() {
 function getUpdateBody() {
   // from 2 to 15 paragraphs
   const paragraphCount =
-    Math.floor(Math.random() * BODY_PARAGRAPH_MAX - BODY_PARAGRAPH_MIN) + BODY_PARAGRAPH_MIN;
+    Math.floor(Math.random() * (BODY_PARAGRAPH_MAX - BODY_PARAGRAPH_MIN + 1)) + BODY_PARAGRAPH_MIN;
   return faker.lorem.paragraphs(paragraphCount);
 }
 
@@ -41,9 +41,11 @@ function randomDate(start, end) {
   return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 }
 
-function intPadLeft(num, base, chr) {
-  const len = String(base || 10).length - String(num).length + 1;
-  return len > 0 ? new Array(len).join(chr || '0') + num : num;
+function intPadLeft(num) {
+  if (String(num).length < 2) {
+    return `0${num}`;
+  }
+  return String(num);
 }
 
 function formatDateForSQL(date) {
