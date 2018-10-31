@@ -6,7 +6,6 @@
 .contentWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 1px;
 }
 
 .horizontalMargin {
@@ -16,21 +15,4 @@
 .verticalMargin {
   height: 50px;
   background: #ddd;
-}
-
-.leftColumn {
-  border-right: 1px solid lightgray;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.rightColumn {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.spacer {
-
 }
