@@ -24,7 +24,9 @@ function Preview({ side, update }) {
         {side === 'left' ? dateAndSpacer : dateAndSpacer.reverse()}
       </div>
       <div className={previewSide}>
-        <div className={styles.title}>{update.title}</div>
+        <div className={styles.title} onHover={}>
+          {update.title}
+        </div>
         <div className={styles.body}>{update.body.split('</p>')[0]}</div>
         <div className={side === 'left' ? styles.footerLeft : styles.footerRight}>
           <div className={`${styles.footerElement} ${styles.comments}`}>12 Comments</div>
