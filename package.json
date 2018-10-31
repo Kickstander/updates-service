@@ -48,10 +48,19 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "file-loader": "^2.0.0",
+<<<<<<< HEAD
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "jest-enzyme": "^7.0.0",
     "morgan": "^1.9.1",
+=======
+<<<<<<< HEAD
+    "jest": "^23.6.0",
+=======
+    "jest-environment-enzyme": "^7.0.0",
+    "jest-enzyme": "^7.0.0",
+>>>>>>> Add enzyme stuff
+>>>>>>> Add enzyme stuff
     "prettier": "^1.14.3",
     "react-test-renderer": "^16.6.0",
     "regenerator-runtime": "^0.12.1",
@@ -73,6 +82,7 @@
   },
   "homepage": "https://github.com/FEC-RSG/updates-service#readme",
   "jest": {
+<<<<<<< HEAD
     "verbose": true,
     "setupTestFrameworkScriptFile": "jest-enzyme",
     "testEnvironment": "enzyme",
@@ -82,5 +92,9 @@
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
     }
+=======
+    "setupTestFrameworkScriptFile": "jest-enzyme",
+    "testEnvironment": "enzyme"
+>>>>>>> Add enzyme stuff
   }
 }
