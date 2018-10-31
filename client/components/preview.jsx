@@ -26,7 +26,10 @@ function Preview({ side, update }) {
       <div className={previewSide}>
         <div className={styles.title}>{update.title}</div>
         <div className={styles.body}>{update.body.split('</p>')[0]}</div>
-        <div className={styles.footer}>{`12 Comments ${update.likes} Likes`}</div>
+        <div className={side === 'left' ? styles.footerLeft : styles.footerRight}>
+          <div className={`${styles.footerElement} ${styles.comments}`}>12 Comments</div>
+          <div className={styles.footerElement}>{`${update.likes} Likes`}</div>
+        </div>
       </div>
     </div>
   );
