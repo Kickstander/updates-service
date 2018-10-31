@@ -50,6 +50,7 @@
     "file-loader": "^2.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
+    "jest-environment-enzyme": "^7.0.0",
     "jest-enzyme": "^7.0.0",
     "morgan": "^1.9.1",
     "prettier": "^1.14.3",
