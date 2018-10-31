@@ -3,38 +3,60 @@ const PropTypes = require('prop-types');
 const React = require('react');
 const styles = require('./preview.css');
 
-function Preview({ side, update }) {
-  let sidePreviewStyle;
+class Preview extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
 
-  const dateAndSpacer = [
-    <div className={styles.date} key="1">
-      {moment(update.pubDate).format('LL')}
-    </div>,
-    <div className={styles.spacerContainer} key="2">
-      <div className={styles.spacerLine} />
-    </div>
-  ];
+    this.state = {
+      highlight: false
+    };
+  }
 
-  const styleSide = side === 'left' ? styles.left : styles.right;
-  const previewSide = side === 'left' ? styles.previewMainLeft : styles.previewMainRight;
+  handleMouseEnter() {
+    this.setState({ highlight: true });
+  }
 
-  return (
-    <div className={styleSide}>
-      <div className={styles.header}>
-        {side === 'left' ? dateAndSpacer : dateAndSpacer.reverse()}
+  handleMouseLeave() {
+    this.setState({ highlight: false });
+  }
+
+  render() {
+    const dateAndSpacer = [
+      <div className={styles.date} key="1">
+        {moment(this.props.update.pubDate).format('LL')}
+      </div>,
+      <div className={styles.spacerContainer} key="2">
+        <div className={styles.spacerLine} />
       </div>
-      <div className={previewSide}>
-        <div className={styles.title} onHover={}>
-          {update.title}
+    ];
+
+    const styleSide = this.props.side === 'left' ? styles.left : styles.right;
+    const previewSide = this.props.side === 'left' ? styles.previewMainLeft : styles.previewMainRight;
+
+    return (
+      <div className={styleSide}>
+        <div className={styles.header}>
+          {this.props.side === 'left' ? dateAndSpacer : dateAndSpacer.reverse()}
         </div>
-        <div className={styles.body}>{update.body.split('</p>')[0]}</div>
-        <div className={side === 'left' ? styles.footerLeft : styles.footerRight}>
-          <div className={`${styles.footerElement} ${styles.comments}`}>12 Comments</div>
-          <div className={styles.footerElement}>{`${update.likes} Likes`}</div>
+        <div className={previewSide}>
+          <div
+            className={this.state.highlight ? styles.titleHighlight : styles.title}
+            onMouseEnter={this.handleMouseEnter}
+            onMouseLeave={this.handleMouseLeave}
+          >
+            {this.props.update.title}
+          </div>
+          <div className={styles.body}>{this.props.update.body.split('</p>')[0]}</div>
+          <div className={this.props.side === 'left' ? styles.footerLeft : styles.footerRight}>
+            <div className={`${styles.footerElement} ${styles.comments}`}>12 Comments</div>
+            <div className={styles.footerElement}>{`${this.props.update.likes} Likes`}</div>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 Preview.defaultProps = {
