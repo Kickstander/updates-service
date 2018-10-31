@@ -46,6 +46,8 @@
     "eslint-plugin-react": "^7.11.1",
     "file-loader": "^2.0.0",
     "jest": "^23.6.0",
+    "jest-environment-enzyme": "^7.0.0",
+    "jest-enzyme": "^7.0.0",
     "prettier": "^1.14.3",
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
@@ -62,5 +64,9 @@
   "bugs": {
     "url": "https://github.com/FEC-RSG/updates-service/issues"
   },
-  "homepage": "https://github.com/FEC-RSG/updates-service#readme"
+  "homepage": "https://github.com/FEC-RSG/updates-service#readme",
+  "jest": {
+    "setupTestFrameworkScriptFile": "jest-enzyme",
+    "testEnvironment": "enzyme"
+  }
 }
