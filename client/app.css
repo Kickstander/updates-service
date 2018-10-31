@@ -1,12 +1,22 @@
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
 }
 
-.wrapper > div {
-  background: #eee;
+.horizontalMargin {
+  background: #ddd;
 }
 
-.wrapper > div:nth-child(odd) {
-  background:#ddd;
+.verticalMargin {
+  height: 50px;
+  background: #ddd;
+}
+
+.leftColumn {
+  border-right: 1px solid lightgray;
+  height: 500px;
+}
+
+.rightColumn {
+  height: 500px;
 }

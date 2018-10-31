@@ -13,20 +13,23 @@ const projectId = 2;
 
 const randomSide = () => {
   return Math.random() >= 0.5 ? 'Left' : 'Right';
-}
+};
 
 function App({ updates }) {
+  const updateList = updates.map(update => (
+    <Preview update={update} side={randomSide()} id={update.id} />
+  ));
+
   return (
     <div>
+      <div className={styles.verticalMargin} />
       <div className={styles.wrapper}>
-        <div>Left Margin</div>
-        <div className={styles['previews-container']}>
-          {updates.map(update => (
-            <Preview update={update} side={randomSide()} id={update.id} />
-          ))}
-        </div>
-        <div>Right Margin</div>
+        <div className={styles.horizontalMargin} />
+        <div className={styles.leftColumn}></div>
+        <div className={styles.rightColumn}></div>
+        <div className={styles.horizontalMargin} />
       </div>
+      <div className={styles.verticalMargin} />
     </div>
   );
 }
