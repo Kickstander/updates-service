@@ -10,21 +10,22 @@ function Preview({ side, update }) {
       {update.pubDate}
     </div>,
     <div className={styles.spacerContainer} key="2">
-      <div className={styles.spacerLine}>Spacer</div>
+      <div className={styles.spacerLine} />
     </div>
   ];
 
   const styleSide = side === 'left' ? styles.left : styles.right;
+  const previewSide = side === 'left' ? styles.previewMainleft : styles.previewMainRight;
 
   return (
     <div className={styleSide}>
       <div className={styles.header}>
         {side === 'left' ? dateAndSpacer : dateAndSpacer.reverse()}
       </div>
-      <div className={styles.previewMain}>
+      <div className={previewSide}>
         <div className={styles.title}>{update.title}</div>
         <div className={styles.body}>{update.body.split('</p>')[0]}</div>
-        <div className={styles.footer}>{`Comments 12 ${update.likes}`}</div>
+        <div className={styles.footer}>{`Comments 12 Likes ${update.likes}`}</div>
       </div>
     </div>
   );

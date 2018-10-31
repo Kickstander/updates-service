@@ -9,7 +9,6 @@
 }
 
 .right {
-  padding-left: 80px;
   padding-top: 60px;
   display: flex;
   flex-direction: column;
@@ -18,12 +17,12 @@
 }
 
 .left {
-  padding-right: 80px;
   padding-top: 60px;
   /* The below margin is to avoid an off by one pixel issue */
   margin-right: -1px;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   text-align: right;
   border-right: 1px solid lightgray;
 }
@@ -34,27 +33,33 @@
   padding: 0px;
 }
 
-.previewMain {
+.previewMainLeft {
+  padding-right: 80px;
+  /* padding: 10px 80px; */
+}
+
+.previewMainRight {
+  padding-left: 80px;
   /* padding: 10px 80px; */
 }
 
 .spacerContainer {
-  /* height: 100%; */
+  height: 100%;
   /* width + date padding must === preview-main padding */
-  /* width: 60px; */
+  width: 60px;
 }
 
 .spacerLine {
-  /* width: 100%;
+  width: 100%;
   height: 50%;
-  border-bottom: 1px solid lightgray; */
+  border-bottom: 1px solid lightgray;
 }
 
 .date {
   font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  /* padding-left: 20px;
-  padding-right: 20px; */
+  padding-left: 20px;
+  padding-right: 20px;
   font-weight: 700;
 }
 
