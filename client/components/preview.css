@@ -72,13 +72,19 @@
   display: inline;
 }
 
-.titleHighlight {
-  font-family: "Cooper Light", Georgia, serif;
-  font-size: 35px;
-  color: #282828;
-  display: inline;
-  background: teal;
-  box-shadow: 6px 0 0 teal, -6px 0 0 teal;
+.highlightTeal {
+  background: #70EFBE;
+  box-shadow: 6px 0 0 #70EFBE, -6px 0 0 #70EFBE;
+}
+
+.highlightSky {
+  background: #A1C5F9;
+  box-shadow: 6px 0 0 #A1C5F9, -6px 0 0 #A1C5F9;
+}
+
+.highlightApricot {
+  background: #F6CCAD;
+  box-shadow: 6px 0 0 #F6CCAD, -6px 0 0 #F6CCAD;
 }
 
 .body {

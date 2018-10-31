@@ -3,6 +3,12 @@ const PropTypes = require('prop-types');
 const React = require('react');
 const styles = require('./preview.css');
 
+function getHighlightColor() {
+  const colors = ['Sky', 'Teal', 'Apricot'];
+  const randomIdx = Math.floor(Math.random() * colors.length);
+  return colors[randomIdx];
+}
+
 class Preview extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +16,8 @@ class Preview extends React.Component {
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
 
     this.state = {
-      highlight: false
+      highlight: false,
+      color: getHighlightColor()
     };
   }
 
@@ -42,7 +49,11 @@ class Preview extends React.Component {
         </div>
         <div className={previewSide}>
           <div
-            className={this.state.highlight ? styles.titleHighlight : styles.title}
+            className={
+              this.state.highlight
+                ? `${styles.title} ${styles[`highlight${this.state.color}`]}`
+                : styles.title
+            }
             onMouseEnter={this.handleMouseEnter}
             onMouseLeave={this.handleMouseLeave}
           >
