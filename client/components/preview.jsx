@@ -30,39 +30,40 @@ class Preview extends React.Component {
   }
 
   render() {
+    const {
+      side,
+      update: { title, body, likes, pubDate }
+    } = this.props;
+    const { highlight, color } = this.state;
     const dateAndSpacer = [
       <div className={styles.date} key="1">
-        {moment(this.props.update.pubDate).format('LL')}
+        {moment(pubDate).format('LL')}
       </div>,
       <div className={styles.spacerContainer} key="2">
         <div className={styles.spacerLine} />
       </div>
     ];
 
-    const styleSide = this.props.side === 'left' ? styles.left : styles.right;
-    const previewSide = this.props.side === 'left' ? styles.previewMainLeft : styles.previewMainRight;
+    const styleSide = side === 'left' ? styles.left : styles.right;
+    const previewSide = side === 'left' ? styles.previewMainLeft : styles.previewMainRight;
 
     return (
       <div className={styleSide}>
         <div className={styles.header}>
-          {this.props.side === 'left' ? dateAndSpacer : dateAndSpacer.reverse()}
+          {side === 'left' ? dateAndSpacer : dateAndSpacer.reverse()}
         </div>
         <div className={previewSide}>
           <div
-            className={
-              this.state.highlight
-                ? `${styles.title} ${styles[`highlight${this.state.color}`]}`
-                : styles.title
-            }
+            className={highlight ? `${styles.title} ${styles[`highlight${color}`]}` : styles.title}
             onMouseEnter={this.handleMouseEnter}
             onMouseLeave={this.handleMouseLeave}
           >
-            {this.props.update.title}
+            {title}
           </div>
-          <div className={styles.body}>{this.props.update.body.split('</p>')[0]}</div>
-          <div className={this.props.side === 'left' ? styles.footerLeft : styles.footerRight}>
+          <div className={styles.body}>{body.split('</p>')[0]}</div>
+          <div className={side === 'left' ? styles.footerLeft : styles.footerRight}>
             <div className={`${styles.footerElement} ${styles.comments}`}>12 Comments</div>
-            <div className={styles.footerElement}>{`${this.props.update.likes} Likes`}</div>
+            <div className={styles.footerElement}>{`${likes} Likes`}</div>
           </div>
         </div>
       </div>
