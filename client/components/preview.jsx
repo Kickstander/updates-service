@@ -26,7 +26,7 @@ function Preview({ side, update }) {
       <div className={previewSide}>
         <div className={styles.title}>{update.title}</div>
         <div className={styles.body}>{update.body.split('</p>')[0]}</div>
-        <div className={styles.footer}>{`Comments 12 Likes ${update.likes}`}</div>
+        <div className={styles.footer}>{`12 Comments ${update.likes} Likes`}</div>
       </div>
     </div>
   );
