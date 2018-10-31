@@ -77,7 +77,11 @@ Preview.defaultProps = {
 
 Preview.propTypes = {
   side: PropTypes.string,
-  update: PropTypes.object
+  update: PropTypes.shape({
+    title: PropTypes.string,
+    pubDate: PropTypes.string,
+    likes: PropTypes.number
+  })
 };
 
 module.exports = Preview;
