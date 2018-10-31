@@ -18,8 +18,10 @@ const alternateSide = () => {
 function App({ updates }) {
   const updateComponents = updates.reduce((acc, update) => {
     const side = alternateSide();
-    // const otherSide = isLeft ? styles.right : styles.left;
-    const updateOrSpacer = [<Preview update={update} side={side} key={update.id} />, <div />];
+    const updateOrSpacer = [
+      <Preview update={update} side={side} key={update.id} />,
+      <div key={`${update.id}spacer`} />
+    ];
     acc.push(side === 'left' ? updateOrSpacer.shift() : updateOrSpacer.pop());
     acc.push(updateOrSpacer[0]);
     return acc;
@@ -49,5 +51,11 @@ App.defaultProps = {
 };
 
 App.propTypes = {
-  updates: PropTypes.array
+  updates: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      pubDate: PropTypes.string,
+      likes: PropTypes.number
+    })
+  )
 };
