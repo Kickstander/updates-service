@@ -9,7 +9,7 @@
 }
 
 .right {
-  padding-top: 60px;
+  padding-top: 7px;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -17,7 +17,7 @@
 }
 
 .left {
-  padding-top: 60px;
+  padding-top: 7px;
   /* The below margin is to avoid an off by one pixel issue */
   margin-right: -1px;
   display: flex;
@@ -31,6 +31,7 @@
   display: flex;
   align-items: center;
   padding: 0px;
+  margin-bottom: 20px;
 }
 
 .previewMainLeft {
@@ -57,15 +58,15 @@
 
 .date {
   font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   padding-left: 20px;
   padding-right: 20px;
-  font-weight: 700;
+  font-weight: 900;
 }
 
 .title {
   font-family: "Cooper Light", Georgia, serif;
-  font-size: 24px;
+  font-size: 35px;
 }
 
 .body {

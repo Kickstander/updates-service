@@ -1,3 +1,4 @@
+const moment = require('moment');
 const PropTypes = require('prop-types');
 const React = require('react');
 const styles = require('./preview.css');
@@ -7,7 +8,7 @@ function Preview({ side, update }) {
 
   const dateAndSpacer = [
     <div className={styles.date} key="1">
-      {update.pubDate}
+      {moment(update.pubDate).format('LL')}
     </div>,
     <div className={styles.spacerContainer} key="2">
       <div className={styles.spacerLine} />
@@ -15,7 +16,7 @@ function Preview({ side, update }) {
   ];
 
   const styleSide = side === 'left' ? styles.left : styles.right;
-  const previewSide = side === 'left' ? styles.previewMainleft : styles.previewMainRight;
+  const previewSide = side === 'left' ? styles.previewMainLeft : styles.previewMainRight;
 
   return (
     <div className={styleSide}>
