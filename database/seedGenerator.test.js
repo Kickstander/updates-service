@@ -1,3 +1,4 @@
+/* eslint-env jest */
 const generateAllSeedData = require('./seedingUtils.js');
 
 describe('Seed Generation', () => {
@@ -49,7 +50,23 @@ describe('Seed Generation', () => {
       expect(update).toHaveProperty('title', expect.any(String));
       expect(update).toHaveProperty('body', expect.any(String));
       expect(update).toHaveProperty('likes', expect.any(Number));
-      expect(update).toHaveProperty('pubDate', expect.stringMatching(/\d\d\d\d-\d\d-\d\d\s\d\d:\d\d:\d\d/));
+      expect(update).toHaveProperty(
+        'pubDate',
+        expect.stringMatching(/\d\d\d\d-\d\d-\d\d\s\d\d:\d\d:\d\d/)
+      );
+    });
+
+    test('Update data has the correct shape', () => {
+      const update = generateAllSeedData(1).updates[0];
+      expect(update).toEqual({
+        id: expect.any(Number),
+        projectId: expect.any(Number),
+        postedBy: expect.any(Number),
+        title: expect.any(String),
+        body: expect.any(String),
+        likes: expect.any(Number),
+        pubDate: expect.stringMatching(/\d\d\d\d-\d\d-\d\d\s\d\d:\d\d:\d\d/)
+      });
     });
   });
 });
