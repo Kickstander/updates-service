@@ -1,4 +1,5 @@
-const moment = require('moment');
+import DateHeader from './dateHeader';
+
 const PropTypes = require('prop-types');
 const React = require('react');
 const styles = require('./preview.css');
@@ -35,23 +36,12 @@ class Preview extends React.Component {
       update: { title, body, likes, pubDate }
     } = this.props;
     const { highlight, color } = this.state;
-    const dateAndSpacer = [
-      <div className={styles.date} key="1">
-        {moment(pubDate).format('LL')}
-      </div>,
-      <div className={styles.spacerContainer} key="2">
-        <div className={styles.spacerLine} />
-      </div>
-    ];
-
     const styleSide = side === 'left' ? styles.left : styles.right;
     const previewSide = side === 'left' ? styles.previewMainLeft : styles.previewMainRight;
 
     return (
       <div className={styleSide}>
-        <div className={styles.header}>
-          {side === 'left' ? dateAndSpacer : dateAndSpacer.reverse()}
-        </div>
+        <DateHeader side={side} pubDate={pubDate} />
         <div className={previewSide}>
           <div
             className={highlight ? `${styles.title} ${styles[`highlight${color}`]}` : styles.title}
@@ -85,4 +75,4 @@ Preview.propTypes = {
   })
 };
 
-module.exports = Preview;
+export default Preview;

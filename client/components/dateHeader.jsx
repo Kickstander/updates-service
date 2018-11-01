@@ -1,0 +1,31 @@
+import React from 'react';
+import moment from 'moment';
+import PropTypes from 'prop-types';
+import styles from './dateHeader.css';
+
+function DateHeader({ side, pubDate }) {
+  const dateAndSpacer = [
+    <div className={styles.date} key="1">
+      {moment(pubDate).format('LL')}
+    </div>,
+    <div className={styles.spacerContainer} key="2">
+      <div className={styles.spacerLine} />
+    </div>
+  ];
+
+  return (
+    <div className={styles.header}>{side === 'left' ? dateAndSpacer : dateAndSpacer.reverse()}</div>
+  );
+}
+
+DateHeader.defaultProps = {
+  side: 'left',
+  pubDate: moment().toString()
+};
+
+DateHeader.propTypes = {
+  side: PropTypes.string,
+  pubDate: PropTypes.string
+};
+
+export default DateHeader;

@@ -27,42 +27,12 @@
   border-right: 1px solid lightgray;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  padding: 0px;
-  margin-bottom: 20px;
-}
-
 .previewMainLeft {
   padding-right: 80px;
-  /* padding: 10px 80px; */
 }
 
 .previewMainRight {
   padding-left: 80px;
-  /* padding: 10px 80px; */
-}
-
-.spacerContainer {
-  height: 100%;
-  /* width + date padding must === preview-main padding */
-  width: 60px;
-}
-
-.spacerLine {
-  width: 100%;
-  height: 50%;
-  border-bottom: 1px solid lightgray;
-}
-
-.date {
-  font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  padding-left: 20px;
-  padding-right: 20px;
-  font-weight: 900;
-  color: #282828;
 }
 
 .title {
@@ -116,5 +86,3 @@
 .comments {
   margin: 0 15px 0 0;
 }
-
-/* teal, sky, apricot */
