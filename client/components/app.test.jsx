@@ -1,7 +1,9 @@
-/* eslint-evn jest */
+/* eslint-env jest */
+/* global shallow:false, React:false */
+
 import App from './app';
-import Preview from './components/preview';
-import dummyData from './dummyData.json';
+import Preview from './preview';
+import dummyData from '../dummyData.json';
 // import { shallow } from 'enzyme';
 
 describe('<App />', () => {
