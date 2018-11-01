@@ -1,9 +1,7 @@
-
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './app.css';
-
-const ReactDom = require('react-dom');
-const Preview = require('./preview.jsx');
+import Preview from './preview';
 
 let isLeft = true;
 
@@ -15,12 +13,16 @@ const alternateSide = () => {
 function App({ updates }) {
   const updateComponents = updates.reduce((acc, update) => {
     const side = alternateSide();
-    const updateOrSpacer = [
-      <Preview update={update} side={side} key={update.id} />,
-      <div key={`${update.id}spacer`} />
-    ];
-    acc.push(side === 'left' ? updateOrSpacer.shift() : updateOrSpacer.pop());
-    acc.push(updateOrSpacer[0]);
+    const preview = <Preview update={update} side={side} key={update.id} />;
+    const spacer = <div key={`${update.id}spacer`} />;
+
+    if (side === 'left') {
+      acc.push(preview);
+      acc.push(spacer);
+    } else {
+      acc.push(spacer);
+      acc.push(preview);
+    }
     return acc;
   }, []);
 
