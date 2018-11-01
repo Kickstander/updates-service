@@ -44,20 +44,6 @@ describe('Seed Generation', () => {
 
     test('Update data has the correct shape', () => {
       const update = generateAllSeedData(1).updates[0];
-      expect(update).toHaveProperty('id', expect.any(Number));
-      expect(update).toHaveProperty('projectId', expect.any(Number));
-      expect(update).toHaveProperty('postedBy', expect.any(Number));
-      expect(update).toHaveProperty('title', expect.any(String));
-      expect(update).toHaveProperty('body', expect.any(String));
-      expect(update).toHaveProperty('likes', expect.any(Number));
-      expect(update).toHaveProperty(
-        'pubDate',
-        expect.stringMatching(/\d\d\d\d-\d\d-\d\d\s\d\d:\d\d:\d\d/)
-      );
-    });
-
-    test('Update data has the correct shape', () => {
-      const update = generateAllSeedData(1).updates[0];
       expect(update).toEqual({
         id: expect.any(Number),
         projectId: expect.any(Number),
