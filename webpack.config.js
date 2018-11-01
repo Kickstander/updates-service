@@ -7,6 +7,9 @@ module.exports = {
     path: path.resolve(__dirname, 'public')
   },
   watch: true,
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   mode: 'development',
   module: {
     rules: [
