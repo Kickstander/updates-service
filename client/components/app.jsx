@@ -1,13 +1,10 @@
-/* eslint-env browser */
-import axios from 'axios';
+
 import PropTypes from 'prop-types';
 import styles from './app.css';
 
-const React = require('react');
 const ReactDom = require('react-dom');
-const Preview = require('./components/preview.jsx');
+const Preview = require('./preview.jsx');
 
-const projectId = 2;
 let isLeft = true;
 
 const alternateSide = () => {
@@ -40,12 +37,6 @@ function App({ updates }) {
   );
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  axios.get(`http://localhost:3000/${projectId}/updates`).then(response => {
-    ReactDom.render(<App updates={response.data} />, document.getElementById('root'));
-  });
-});
-
 App.defaultProps = {
   updates: {}
 };
@@ -59,3 +50,5 @@ App.propTypes = {
     })
   )
 };
+
+export default App;
