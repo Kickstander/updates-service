@@ -6,26 +6,25 @@ import dummyData from '../dummyData.json';
 import Preview from './preview';
 import DateHeader from './dateHeader';
 
-const update = dummyData[0];
-const firstParagraph =
-  'Autem quia magni totam natus facilis. Animi voluptatem eius pariatur adipisci ipsam laudantium odit qui est. Expedita dolores est omnis velit vero corrupti. Est quo non quidem.';
-const title = 'Use the auxiliary JSON port, then you can back up the solid state transmitter!';
-let wrapper;
-
-function callShallowWithBadProps(updatePropReplacements, side = 'left') {
-  const copyWithBadProps = Object.keys(update).reduce((acc, key) => {
-    acc[key] = update[key];
-    return acc;
-  }, {});
-
-  Object.keys(updatePropReplacements).forEach(key => {
-    copyWithBadProps[key] = updatePropReplacements[key];
-  });
-
-  shallow(<Preview update={copyWithBadProps} side={side} />);
-}
-
 describe('<Preview />', () => {
+  const update = dummyData[0];
+  const firstParagraph =
+    'Autem quia magni totam natus facilis. Animi voluptatem eius pariatur adipisci ipsam laudantium odit qui est. Expedita dolores est omnis velit vero corrupti. Est quo non quidem.';
+  const title = 'Use the auxiliary JSON port, then you can back up the solid state transmitter!';
+  let wrapper;
+
+  function callShallowWithBadProps(updatePropReplacements, side = 'left') {
+    const copyWithBadProps = Object.keys(update).reduce((acc, key) => {
+      acc[key] = update[key];
+      return acc;
+    }, {});
+
+    Object.keys(updatePropReplacements).forEach(key => {
+      copyWithBadProps[key] = updatePropReplacements[key];
+    });
+
+    shallow(<Preview update={copyWithBadProps} side={side} />);
+  }
   beforeEach(() => {
     wrapper = shallow(<Preview update={update} />);
   });

@@ -3,10 +3,9 @@
 import moment from 'moment';
 import DateHeader from './dateHeader';
 
-let wrapper;
-const date = '2015-02-16T08:00:00.000Z';
-
 describe('<DateHeader />', () => {
+  let wrapper;
+  const date = '2015-02-16T08:00:00.000Z';
   beforeEach(() => {
     wrapper = shallow(<DateHeader pubDate={date} />);
   });
