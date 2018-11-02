@@ -27,7 +27,6 @@ jobs:
           - v1-dependencies-
 
       - run: npm install
-      - run: npx install-peerdeps --dev eslint-config-airbnb
 
       - save_cache:
           paths:
