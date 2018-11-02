@@ -1,4 +1,5 @@
 const model = require('./db.js');
+
 const generateAllSeedData = require('./seedingUtils');
 
 const data = generateAllSeedData(100);

@@ -17,7 +17,13 @@
 
 ## Usage
 
-> Some usage instructions
+```
+// New terminal at each step
+npm run start
+npm run build
+mysql.server start THEN mysql -u root
+
+```
 
 ## Requirements
 

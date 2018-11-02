@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Maison Neue Book';
+  src: url('./MaisonNeueBook.otf') format("opentype");
+}
+
+.date {
+  font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: 900;
+  color: #282828;
+}
+
+.spacerContainer {
+  height: 100%;
+  /* (.spaceContainerwidth + date padding) must === preview-main padding in preview's CSS file so that margins line up */
+  width: 60px;
+}
+
+.spacerLine {
+  width: 100%;
+  height: 50%;
+  border-bottom: 1px solid lightgray;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  margin-bottom: 20px;
+}

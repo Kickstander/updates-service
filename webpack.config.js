@@ -1,19 +1,31 @@
 const path = require('path');
 
 module.exports = {
-  entry: './client/app.jsx',
+  entry: './client/index.jsx',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'public')
   },
   watch: true,
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   mode: 'development',
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        loader: 'style-loader'
       },
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        query: {
+          modules: true,
+          localIdentName: '[name]__[local]___[hash:base64:5]'
+        }
+      },
+      { test: /\.(png|woff|woff2|eot|ttf|svg|otf)$/, loader: 'url-loader?limit=100000' },
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,

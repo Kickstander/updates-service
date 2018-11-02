@@ -1,0 +1,88 @@
+@font-face {
+  font-family: 'Cooper Light';
+  src: url('./CooperLightBT.ttf');
+}
+
+@font-face {
+  font-family: 'Maison Neue Book';
+  src: url('./MaisonNeueBook.otf') format("opentype");
+}
+
+.right {
+  padding-top: 7px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border-left: 1px solid lightgray;
+}
+
+.left {
+  padding-top: 7px;
+  /* The below margin is to avoid an off by one pixel issue */
+  margin-right: -1px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  border-right: 1px solid lightgray;
+}
+
+.previewMainLeft {
+  padding-right: 80px;
+}
+
+.previewMainRight {
+  padding-left: 80px;
+}
+
+.title {
+  font-family: "Cooper Light", Georgia, serif;
+  font-size: 35px;
+  color: #282828;
+  display: inline;
+}
+
+.highlightTeal {
+  background: #70EFBE;
+  box-shadow: 6px 0 0 #70EFBE, -6px 0 0 #70EFBE;
+}
+
+.highlightSky {
+  background: #A1C5F9;
+  box-shadow: 6px 0 0 #A1C5F9, -6px 0 0 #A1C5F9;
+}
+
+.highlightApricot {
+  background: #F6CCAD;
+  box-shadow: 6px 0 0 #F6CCAD, -6px 0 0 #F6CCAD;
+}
+
+.body {
+  font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  margin: 25px 0;
+  color: #282828;
+}
+
+.footerLeft {
+  margin-bottom: 45px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footerRight {
+  margin-bottom: 45px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.footerElement {
+  font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #282828;
+  cursor: pointer;
+}
+
+.comments {
+  margin: 0 15px 0 0;
+}
