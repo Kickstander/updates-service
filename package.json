@@ -12,7 +12,8 @@
     "dropdb": "mysql -u root < database/schema.sql",
     "manualdb": "mysql -u root",
     "seed": "node database/seedGenerator.js",
-    "test": "jest --watch"
+    "test": "jest",
+    "testWatch": "jest --watch"
   },
   "dependencies": {
     "axios": "^0.18.0",
