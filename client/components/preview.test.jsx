@@ -86,11 +86,24 @@ describe('<Preview />', () => {
 
     console.error.restore(); // eslint-disable-line
   });
-});
 
-/*
-Sets itself to the correct side
-Check that the highlight state changes the className on the title
-Check that the first paragraph of the body is rendered
-More tests?
- */
+  it('It sets itself to the correct side', () => {
+    wrapper = shallow(<Preview side="right" />);
+    expect(wrapper.first().hasClass('right')).toBe(true);
+    wrapper = shallow(<Preview side="left" />);
+    expect(wrapper.first().hasClass('left')).toBe(true);
+  });
+
+  it('The title className changes when hovered', () => {
+    const highlightColors = ['Sky', 'Teal', 'Apricot'];
+    let titleWrapper = wrapper.find('.title');
+    highlightColors.forEach(color => {
+      expect(titleWrapper.hasClass(`highlight${color}`)).toBe(false);
+    });
+    titleWrapper = wrapper.setState({ highlight: true }).find('.title');
+    const styleMatches = highlightColors.filter(color =>
+      titleWrapper.hasClass(`highlight${color}`)
+    );
+    expect(styleMatches.length).toBe(1);
+  });
+});
