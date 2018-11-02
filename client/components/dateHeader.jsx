@@ -24,7 +24,7 @@ DateHeader.defaultProps = {
 };
 
 DateHeader.propTypes = {
-  side: PropTypes.string,
+  side: PropTypes.oneOf(['left', 'right']),
   pubDate: PropTypes.string
 };
 
