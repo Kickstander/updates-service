@@ -1,8 +1,7 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import DateHeader from './dateHeader';
-
-const PropTypes = require('prop-types');
-const React = require('react');
-const styles = require('./preview.css');
+import styles from './preview.css';
 
 function getHighlightColor() {
   const colors = ['Sky', 'Teal', 'Apricot'];
