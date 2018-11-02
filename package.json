@@ -47,6 +47,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "file-loader": "^2.0.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "jest-enzyme": "^7.0.0",
     "morgan": "^1.9.1",
@@ -77,7 +78,7 @@
       "enzymeAdapter": "react16"
     },
     "moduleNameMapper": {
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+      "\\.(css|less)$": "identity-obj-proxy"
     }
   }
 }
