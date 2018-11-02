@@ -1,10 +1,10 @@
 /* eslint-env jest */
 /* global shallow:false, React:false */
 
+import sinon from 'sinon';
 import dummyData from '../dummyData.json';
 import Preview from './preview';
 import DateHeader from './dateHeader';
-import sinon from 'sinon';
 
 const update = dummyData[0];
 const firstParagraph =
@@ -18,11 +18,11 @@ function callShallowWithBadProps(updatePropReplacements, side = 'left') {
     return acc;
   }, {});
 
-  Object.keys(updatePropReplacements).forEach(key => (
-    copyWithBadProps[key] = updatePropReplacements[key]
-  ));
+  Object.keys(updatePropReplacements).forEach(key => {
+    copyWithBadProps[key] = updatePropReplacements[key];
+  });
 
-  shallow(<Preview update={copyWithBadProps} side={side}/>);
+  shallow(<Preview update={copyWithBadProps} side={side} />);
 }
 
 describe('<Preview />', () => {
@@ -48,17 +48,22 @@ describe('<Preview />', () => {
 
   test('It renders the correct title', () => {
     expect(wrapper.find('.title').text()).toBe(title);
-  })
+  });
 
   test('It renders the correct number of Likes', () => {
-    expect(wrapper.find('.footerElement').last().text()).toBe('265 Likes');
+    expect(
+      wrapper
+        .find('.footerElement')
+        .last()
+        .text()
+    ).toBe('265 Likes');
   });
 
   test('It logs or throws an error for incorrect prop types', () => {
-    let stub = sinon.stub(console, 'error');
+    const stub = sinon.stub(console, 'error');
 
     const badSide = 'NotRightOrLeft';
-    const goodUpdateProps = {}
+    const goodUpdateProps = {};
 
     /* Note that errors are double on some of the below
     because the same "bad" prop is passed to the DateHeader child component, which will
@@ -67,24 +72,23 @@ describe('<Preview />', () => {
     callShallowWithBadProps(goodUpdateProps, badSide);
     expect(stub.callCount).toBe(2); // extra error from DateHeader child
 
-    callShallowWithBadProps({pubDate: 7});
+    callShallowWithBadProps({ pubDate: 7 });
     expect(stub.callCount).toBe(4); // extra error from DateHeader child
 
-    callShallowWithBadProps({title: true});
+    callShallowWithBadProps({ title: true });
     expect(stub.callCount).toBe(5);
 
-    expect(() => callShallowWithBadProps({body: 28})).toThrow();
+    expect(() => callShallowWithBadProps({ body: 28 })).toThrow();
     expect(stub.callCount).toBe(6);
 
-    callShallowWithBadProps({likes: 'hello, I am not a number!'});
+    callShallowWithBadProps({ likes: 'hello, I am not a number!' });
     expect(stub.callCount).toBe(7);
 
-    console.error.restore();
+    console.error.restore(); // eslint-disable-line
   });
 });
 
 /*
-Throws an error for the wrong prop types
 Sets itself to the correct side
 Check that the highlight state changes the className on the title
 Check that the first paragraph of the body is rendered

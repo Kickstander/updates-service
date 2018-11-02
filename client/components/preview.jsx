@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import DateHeader from './dateHeader';
 import styles from './preview.css';
-import moment from 'moment';
 
 function getHighlightColor() {
   const colors = ['Sky', 'Teal', 'Apricot'];
@@ -67,7 +67,8 @@ Preview.defaultProps = {
     title: 'No Updates Available',
     pubDate: moment().toISOString(),
     likes: 0,
-    body: 'There are no updates for this project at this time. If you are a contributer, you will recieve an email notification when an update is posted.'
+    body:
+      'There are no updates for this project at this time. If you are a contributer, you will recieve an email notification when an update is posted.'
   }
 };
 
