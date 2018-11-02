@@ -24,5 +24,6 @@ app.get('/:projectId/updates', (req, res) => {
   });
 });
 
-app.listen(port);
-console.log(`Listening at PORT: ${port}`);
+app.listen(port, () => {
+  console.log(`Listening at PORT: ${port}`);
+});

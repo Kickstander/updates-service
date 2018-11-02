@@ -30,9 +30,9 @@ function App({ updates }) {
     <div>
       <div className={styles.verticalMargin} />
       <div className={styles.wrapper}>
-        <div className={styles.horizontalMargin} />
+        <div />
         <div className={styles.contentWrapper}>{updateComponents}</div>
-        <div className={styles.horizontalMargin} />
+        <div />
       </div>
       <div className={styles.verticalMargin} />
     </div>
