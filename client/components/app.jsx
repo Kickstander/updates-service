@@ -48,7 +48,8 @@ App.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       pubDate: PropTypes.string,
-      likes: PropTypes.number
+      likes: PropTypes.number,
+      body: PropTypes.string
     })
   )
 };
