@@ -1,5 +1,8 @@
 # Project Name
 
+## Screenshot
+![screenshot](/screenShots/updates.png)
+
 > Project description
 
 ## Related Projects
