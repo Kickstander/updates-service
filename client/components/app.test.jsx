@@ -4,7 +4,6 @@ import sinon from 'sinon';
 import App from './app';
 import Preview from './preview';
 import dummyData from '../dummyData.json';
-// import { shallow } from 'enzyme';
 
 const badData = [
   {
