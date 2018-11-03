@@ -8,7 +8,7 @@ const db = require('../database/db.js');
 
 const app = express();
 
-const port = 3000;
+const port = 3004;
 
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(morgan('dev'));
