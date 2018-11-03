@@ -20,11 +20,11 @@ function DateHeader({ side, pubDate }) {
 
 DateHeader.defaultProps = {
   side: 'left',
-  pubDate: moment().toString()
+  pubDate: moment().toISOString()
 };
 
 DateHeader.propTypes = {
-  side: PropTypes.string,
+  side: PropTypes.oneOf(['left', 'right']),
   pubDate: PropTypes.string
 };
 
