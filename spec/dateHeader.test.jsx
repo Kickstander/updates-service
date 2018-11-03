@@ -1,7 +1,7 @@
 /* eslint-env jest */
 /* global shallow:false, React:false */
 import moment from 'moment';
-import DateHeader from './dateHeader';
+import DateHeader from '../client/components/dateHeader';
 
 describe('<DateHeader />', () => {
   let wrapper;

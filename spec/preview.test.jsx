@@ -2,9 +2,9 @@
 /* global shallow:false, React:false */
 
 import sinon from 'sinon';
-import dummyData from '../dummyData.json';
-import Preview from './preview';
-import DateHeader from './dateHeader';
+import dummyData from './dummyData.json';
+import Preview from '../client/components/preview';
+import DateHeader from '../client/components/dateHeader';
 
 describe('<Preview />', () => {
   const update = dummyData[0];

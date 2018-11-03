@@ -1,9 +1,9 @@
 /* eslint-env jest */
 /* global shallow:false, React:false */
 import sinon from 'sinon';
-import App from './app';
-import Preview from './preview';
-import dummyData from '../dummyData.json';
+import App from '../client/components/app';
+import Preview from '../client/components/preview';
+import dummyData from './dummyData.json';
 
 const badData = [
   {
