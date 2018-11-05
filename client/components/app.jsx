@@ -29,7 +29,6 @@ class App extends React.Component {
 
   createAlternatingUpdates() {
     const { updates } = this.state;
-    console.log(updates);
     const updateComponents = updates.reduce((acc, update) => {
       const side = alternateSide();
       const preview = <Preview update={update} side={side} key={update.id} />;
