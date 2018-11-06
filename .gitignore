@@ -22,5 +22,8 @@ coverage
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
+
+# Files
 public/bundle.js
+database/db.env.config.js
 
