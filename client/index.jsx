@@ -1,8 +1,4 @@
 /* eslint-env browser */
-import React from 'react';
-import ReactDom from 'react-dom';
 import App from './components/app';
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDom.render(<App />, document.getElementById('root'));
-});
+window.App = App;
