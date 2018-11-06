@@ -1,10 +1,10 @@
+/* eslint-env browser */
 import React from 'react';
 import axios from 'axios';
 import styles from './app.css';
 import Preview from './preview';
 
 let isLeft = true;
-const PROJECT_ID = 7;
 
 const alternateSide = () => {
   isLeft = !isLeft;
@@ -19,8 +19,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    const splitURL = window.location.href.split('/');
+    const projectId = splitURL[splitURL.length - 1];
     axios
-      .get(`http://localhost:3004/${PROJECT_ID}/updates`)
+      .get(`http://localhost:3004/${projectId}/updates`)
       .then(updates => {
         this.setState({ updates: updates.data });
       })
