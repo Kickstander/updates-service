@@ -1,4 +1,4 @@
 /* eslint-env browser */
-import App from './components/app';
+import Updates from './components/app';
 
-window.App = App;
+window.App = Updates;
