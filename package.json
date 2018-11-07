@@ -11,7 +11,7 @@
     "start": "nodemon server/server.js",
     "dropdb": "mysql -u root < database/schema.sql",
     "manualdb": "mysql -u root",
-    "seed": "node database/db.js",
+    "seed": "node database/seedGenerator.js",
     "test": "jest",
     "testWatch": "jest --watch"
   },
