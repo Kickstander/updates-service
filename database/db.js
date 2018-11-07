@@ -1,51 +1,48 @@
-const DATABASE = 'kickstarter';
-const USERNAME = 'root';
 const Sequelize = require('sequelize');
+const loginInfo = require('./db.env.config');
 
-const sequelize = new Sequelize({
-  database: DATABASE,
-  username: USERNAME,
-  password: null,
-  host: 'localhost',
-  dialect: 'mysql',
-  define: {
-    allowNull: false
-  },
-  sync: { force: true }
-});
-
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('MYSQL connection has been established...');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
+function intitializeSequelize() {
+  const sequelize = new Sequelize({
+    database: loginInfo.database,
+    username: loginInfo.user,
+    password: loginInfo.password,
+    host: 'localhost',
+    dialect: 'mysql',
+    define: {
+      allowNull: false
+    }
   });
 
-const User = sequelize.define('user', {
-  userName: Sequelize.STRING(100)
-});
+  const User = sequelize.define('user', {
+    userName: Sequelize.STRING(100)
+  });
+  const Project = sequelize.define('project', {
+    projectName: Sequelize.STRING
+  });
+  Project.belongsTo(User, { foreignKey: 'ownerId' });
+  const Update = sequelize.define('update', {
+    title: Sequelize.STRING,
+    body: Sequelize.TEXT,
+    likes: Sequelize.INTEGER,
+    pubDate: Sequelize.DATE
+  });
+  Update.belongsTo(User, { foreignKey: 'postedBy' });
+  Update.belongsTo(Project, { foreignKey: 'projectId' });
 
-const Project = sequelize.define('project', {
-  projectName: Sequelize.STRING
-});
+  return {
+    sequelizeConnection: sequelize
+      .authenticate()
+      .then(() => {
+        console.log('MYSQL connection has been established...');
+      })
+      .catch(err => {
+        console.error('Unable to connect to the database:', err);
+      }),
+    User,
+    Project,
+    Update,
+    sequelize
+  };
+}
 
-const Update = sequelize.define('update', {
-  title: Sequelize.STRING,
-  body: Sequelize.TEXT,
-  likes: Sequelize.INTEGER,
-  pubDate: Sequelize.DATE
-});
-
-Project.belongsTo(User, { foreignKey: 'ownerId' });
-Update.belongsTo(User, { foreignKey: 'postedBy' });
-Update.belongsTo(Project, { foreignKey: 'projectId' });
-
-User.sync();
-Project.sync();
-Update.sync();
-
-exports.User = User;
-exports.Project = Project;
-exports.Update = Update;
+module.exports = intitializeSequelize;

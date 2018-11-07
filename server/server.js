@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 // DATABASE DEPENDENCY
-const db = require('../database/db.js');
+const initializeSequelize = require('../database/db.js');
 
 const app = express();
 
@@ -17,13 +17,16 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 
 app.get('/:projectId/updates', (req, res) => {
-  db.Update.findAll({
-    where: {
-      projectId: req.params.projectId
-    }
-  }).then(updates => {
-    res.send(updates);
-  });
+  const { Update, sequelizeConnection, sequelize } = initializeSequelize();
+  sequelizeConnection.then(() =>
+    Update.findAll({
+      where: {
+        projectId: req.params.projectId
+      }
+    })
+      .then(updates => res.send(updates))
+      .then(() => sequelize.close())
+  );
 });
 
 app.listen(port, () => {
