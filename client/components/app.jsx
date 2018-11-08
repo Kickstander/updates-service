@@ -3,6 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import styles from './app.css';
 import Preview from './preview';
+// import mockData from '../database'
 
 let isLeft = true;
 
@@ -20,7 +21,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const splitURL = window.location.href.split('/');
-    const projectId = splitURL[splitURL.length - 1];
+    const projectId = Number(splitURL[splitURL.length - 1]) || 7;
     axios
       .get(`http://localhost:3004/${projectId}/updates`)
       .then(updates => {
