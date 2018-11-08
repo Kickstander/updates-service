@@ -16,6 +16,10 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
+app.get('/:projectId', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../public/index.html'));
+});
+
 app.get('/:projectId/updates', (req, res) => {
   const { Update, sequelizeConnection, sequelize } = initializeSequelize();
   sequelizeConnection.then(() =>
