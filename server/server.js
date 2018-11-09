@@ -30,6 +30,7 @@ app.get('/:projectId/updates', (req, res) => {
     })
       .then(updates => res.send(updates))
       .then(() => sequelize.close())
+      .catch(err => console.error(err))
   );
 });
 
