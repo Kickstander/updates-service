@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "sleep 120 && node database/seedGenerator.js && node server/server.js",
+    "start": "node server/server.js",
     "seed": "node database/seedGenerator.js",
     "test": "jest",
     "testWatch": "jest --watch"
