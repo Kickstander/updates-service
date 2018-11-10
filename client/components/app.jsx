@@ -23,7 +23,7 @@ class App extends React.Component {
     const splitURL = window.location.href.split('/');
     const projectId = Number(splitURL[splitURL.length - 1]) || 7;
     axios
-      .get(`http://localhost:1000/${projectId}/updates`)
+      .get(`http://18.223.117.187:80/${projectId}/updates`)
       .then(updates => {
         this.setState({ updates: updates.data });
       })

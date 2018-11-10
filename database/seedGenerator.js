@@ -40,3 +40,5 @@ connection.query('DROP DATABASE if exists kickstarter;', dropErr => {
   });
   return undefined;
 });
+
+module.exports = seedDatabase;
