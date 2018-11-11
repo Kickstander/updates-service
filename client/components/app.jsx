@@ -3,9 +3,12 @@ import React from 'react';
 import axios from 'axios';
 import styles from './app.css';
 import Preview from './preview';
-// import mockData from '../database'
 
+/* eslint-disable */
+const HOST_URL = process.env.HOST_URL;
+const HOST_PORT = process.env.HOST_PORT;
 let isLeft = true;
+/* eslint-enable */
 
 const alternateSide = () => {
   isLeft = !isLeft;
@@ -23,7 +26,7 @@ class App extends React.Component {
     const splitURL = window.location.href.split('/');
     const projectId = Number(splitURL[splitURL.length - 1]) || 7;
     axios
-      .get(`http://18.223.117.187:80/${projectId}/updates`)
+      .get(`${HOST_URL}:${HOST_PORT}/${projectId}/updates`)
       .then(updates => {
         this.setState({ updates: updates.data });
       })
