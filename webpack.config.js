@@ -17,9 +17,12 @@ module.exports = () => {
       path: path.resolve(__dirname, 'public')
     },
     plugins: [new webpack.DefinePlugin(envKeys)],
-    mode: 'development',
     resolve: {
       extensions: ['.js', '.jsx']
+    },
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: 1000
     },
     module: {
       rules: [
