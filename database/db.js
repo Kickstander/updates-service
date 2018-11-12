@@ -6,7 +6,7 @@ function intitializeSequelize() {
     database: loginInfo.database,
     username: loginInfo.user,
     password: loginInfo.password,
-    host: 'localhost',
+    host: 'db',
     dialect: 'mysql',
     define: {
       allowNull: false

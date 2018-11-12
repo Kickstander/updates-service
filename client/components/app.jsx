@@ -4,7 +4,11 @@ import axios from 'axios';
 import styles from './app.css';
 import Preview from './preview';
 
+/* eslint-disable */
+const HOST_URL = process.env.HOST_URL;
+const HOST_PORT = process.env.HOST_PORT;
 let isLeft = true;
+/* eslint-enable */
 
 const alternateSide = () => {
   isLeft = !isLeft;
@@ -20,9 +24,9 @@ class App extends React.Component {
 
   componentDidMount() {
     const splitURL = window.location.href.split('/');
-    const projectId = splitURL[splitURL.length - 1];
+    const projectId = Number(splitURL[splitURL.length - 1]) || 7;
     axios
-      .get(`http://localhost:3004/${projectId}/updates`)
+      .get(`${HOST_URL}:${HOST_PORT}/${projectId}/updates`)
       .then(updates => {
         this.setState({ updates: updates.data });
       })
