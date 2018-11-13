@@ -1,0 +1,45 @@
+.mainNavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 74px;
+  border-bottom: 1px solid black;
+  padding: 0 30px;
+ }
+
+ .searchContainer {
+  display: flex;
+  align-items: center;
+}
+
+.searchBar {
+  border: none;
+  text-align: right;
+}
+
+.searchBar:focus {
+  outline: none;
+}
+
+.logoImg {
+  width: 14%;
+  height: auto;
+  align-self: center;
+}
+
+.userImg {
+  margin-left: 16px;
+}
+
+.startProjectBtn {
+  margin-left: 10px;
+}
+
+.navText {
+  font-size: 15px;
+}
+
+.navText:hover {
+  color: #009E74;
+  cursor: pointer;
+}
