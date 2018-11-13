@@ -2,11 +2,11 @@ const webpack = require('webpack');
 const path = require('path');
 const dotenv = require('dotenv');
 
-module.exports = () => {
-  // const env = dotenv.config({ path: '../'}).parsed;
-  const env = dotenv.config({ path: path.resolve(__dirname, '../.env') }).parsed;
-  const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next]);
+module.exports = env => {
+  const envFile = dotenv.config({ path: path.resolve(__dirname, `../.env`) }).parsed;
+  const envKeys = Object.keys(envFile).reduce((prev, next) => {
+    // eslint-disable-next-line
+    prev[`process.env.${next}`] = JSON.stringify(envFile[next]);
     return prev;
   }, {});
   console.log(envKeys);
@@ -20,10 +20,12 @@ module.exports = () => {
     resolve: {
       extensions: ['.js', '.jsx']
     },
+    watch: env.NODE_ENV === 'development',
     watchOptions: {
       aggregateTimeout: 300,
       poll: 1000
     },
+    mode: env.NODE_ENV,
     module: {
       rules: [
         {
