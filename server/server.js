@@ -1,10 +1,10 @@
 // EXPRESS DEPENDENCIES
 const express = require('express');
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
+// require('dotenv').config({ path: path.resolve(__dirname, `../../${process.env.NODE_ENV}.env`) });
 // DATABASE DEPENDENCY
 const initializeSequelize = require('../database/db.js');
 

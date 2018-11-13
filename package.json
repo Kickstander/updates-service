@@ -7,10 +7,10 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build:prod": "webpack --mode='production'",
-    "build:dev": "webpack --watch --mode='development'",
-    "start:dev": "nodemon server/server.js",
-    "start:prod": "node server/server.js",
+    "build:prod": "webpack --env.NODE_ENV=production",
+    "build:dev": "webpack --env.NODE_ENV=development",
+    "start:dev": "NODE_ENV=development nodemon server/server.js",
+    "start:prod": "NODE_ENV=production node server/server.js",
     "seed": "node database/seedGenerator.js",
     "test": "jest",
     "testWatch": "jest --watch"
