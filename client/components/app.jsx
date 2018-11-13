@@ -56,7 +56,6 @@ class App extends React.Component {
     const { updates } = this.state;
     return (
       <div>
-        <h1>IS THE VOLUME WORKING!?</h1>
         <div className={styles.verticalMargin} />
         <div className={styles.wrapper}>
           <div />
