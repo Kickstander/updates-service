@@ -1,4 +1,4 @@
-# Project Name
+# Kickstarter (Updates Service)
 
 ## Screenshot
 ![screenshot](/screenShots/updates.png)
@@ -28,12 +28,22 @@ mysql.server start THEN mysql -u root
 
 ```
 
+## Endpoints
+| Action    | Method | Endpoint                                                       | Purpose           |
+|-----------|--------|----------------------------------------------------------------|-------------------|
+| Create    | POST   | /api/projects/:projectId/updates                               | Insert new update |
+| Read(All) | GET    | /api/projects/:projectId/updates                               | Get all updates   |
+| Read(One) | GET    | /api/projects/:projectId/updates[/:updateId, ?name=updateName] | Get one update    |
+| Update    | PUT    | /api/projects/:projectId/updates/:updateId                     | Update one update |
+| Delete    | DELETE | /api/projects/:projectId/updates/:updateId                     | Delete an update  |
+
+
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
-- Node 6.13.0
-- etc
+- Node 8.12.0
+- MySQL v5.7.23
 
 ## Development
 

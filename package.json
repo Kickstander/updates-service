@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build:prod": "webpack --env.NODE_ENV=production",
-    "build:dev": "webpack --env.NODE_ENV=development",
+    "build:dev": "webpack -d",
     "start:dev": "NODE_ENV=development nodemon server/server.js",
     "start:prod": "NODE_ENV=production node server/server.js",
     "seed": "node database/seedGenerator.js",

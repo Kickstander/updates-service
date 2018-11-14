@@ -25,5 +25,6 @@ build/
 
 # Files
 public/bundle.js
-database/db.env.config.js
+db.env.config
+.env
 
