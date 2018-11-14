@@ -7,7 +7,7 @@ module.exports = {
   },
   read: (req, res) => {
     // something happens here
-    Models.Update.getAll()
+    Models.Update.getAll(req.params.projectId)
       .then(updates => res.json(updates))
       .catch(e => res.status(500).json(e));
   },
