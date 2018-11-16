@@ -1,20 +1,22 @@
 const faker = require('faker');
 const fs = require('fs');
+const moment = require('moment');
 const { Readable } = require('stream');
 const {
   getLikes,
   generateDate,
   randomNum,
-} = require('../server/database/seedingUtils');
+} = require('./seedingUtils');
 
 const MIN_UPDATES = 2;
 const MAX_UPDATES = 10;
+const startTime = new Date();
 
 class GenDataStream extends Readable {
   constructor(opt) {
     super(opt);
 
-    this.projects = 10000000;
+    this.projects = 10 * 1000000;
     this.completedProjects = 0;
     this.updateCount = 1;
     this.update = '';
@@ -31,6 +33,14 @@ class GenDataStream extends Readable {
       }
       this.push(this.update);
       this.update = '';
+      // Create a percentage status
+      if ((this.completedProjects) % (this.projects / 10000) === 0) {
+        console.clear();
+        console.log(`${((this.completedProjects / this.projects) * 100).toFixed(2)}% complete...`);
+        const seconds = ((new Date() - startTime) / 1000).toFixed(0);
+        const minutes = (seconds / 60).toFixed(0);
+        console.log(`${minutes} minutes elapsed`);
+      }
     }
   }
 
@@ -40,7 +50,7 @@ class GenDataStream extends Readable {
     // generate that many updates for each project
     for (let j = 0; j < numberOfUpdates; j += 1) {
       this.update += `${[
-        faker.hacker.phrase(), // title
+        faker.hacker.phrase().replace(/,/g, ''), // title
         faker.lorem.paragraphs(3, '\n').replace(/\n/g, '\\n'), // body
         getLikes(), // likes
         generateDate(), // pubDate
