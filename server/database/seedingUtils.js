@@ -66,6 +66,11 @@ function generateProjectData(ownerId, projectId) {
   };
 }
 
+const generateDate = () => {
+  const date = randomDate(KICKSTARTER_FOUNDED, new Date());
+  return formatDateForSQL(date);
+};
+
 function getUpdateData(postedBy, projectId) {
   const date = randomDate(KICKSTARTER_FOUNDED, new Date());
   updateCount += 1;
@@ -110,4 +115,11 @@ function generateAllSeedData(num) {
   return data;
 }
 
-module.exports = generateAllSeedData;
+module.exports = {
+  generateAllSeedData,
+  getUpdateData,
+  getUpdateBody,
+  getLikes,
+  generateDate,
+  randomNum
+};
