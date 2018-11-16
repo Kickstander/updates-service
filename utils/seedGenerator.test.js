@@ -1,5 +1,5 @@
 /* eslint-env jest */
-const generateAllSeedData = require('./seedingUtils.js');
+const { generateAllSeedData } = require('./seedingUtils.js');
 
 describe('Seed Generation', () => {
   describe('seed generation function', () => {
