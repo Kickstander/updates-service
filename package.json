@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build:prod": "webpack --env.NODE_ENV=production",
-    "build:dev": "webpack -d",
+    "build:dev": "webpack -d --env.NODE_ENV=development",
     "start:dev": "NODE_ENV=development nodemon server/server.js",
     "start:prod": "NODE_ENV=production node server/server.js",
     "seed": "node database/seedGenerator.js",
@@ -25,12 +25,10 @@
     "faker": "^4.1.0",
     "moment": "^2.22.2",
     "morgan": "^1.9.1",
-    "mysql": "^2.16.0",
-    "mysql2": "^1.6.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "sequelize": "^4.41.0"
+    "sequelize": "^4.41.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
