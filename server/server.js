@@ -1,5 +1,6 @@
-// EXPRESS DEPENDENCIES
+require('newrelic');
 require('dotenv').config();
+// EXPRESS DEPENDENCIES
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
