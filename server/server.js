@@ -1,10 +1,10 @@
 // EXPRESS DEPENDENCIES
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
-// require('dotenv').config({ path: path.resolve(__dirname, `../../${process.env.NODE_ENV}.env`) });
 const Controllers = require('./controllers');
 
 const PORT = process.env.PORT || 3000;
@@ -20,11 +20,12 @@ app.get('/:projectId', (req, res) => {
 });
 
 app.route('/api/projects/:projectId/updates')
-  .post(Controllers.Update.create)
-  .get(Controllers.Update.read)
-  .put(Controllers.Update.update)
-  .delete(Controllers.Update.delete);
+  .get(Controllers.Update.read);
+// .post(Controllers.Update.create)
+// .put(Controllers.Update.update)
+// .delete(Controllers.Update.delete);
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Listening at PORT: ${PORT}`);
 });

@@ -19,8 +19,9 @@ function getLikes() {
 
 function getUpdateBody() {
   // from 2 to 15 paragraphs
-  const paragraphCount =
-    Math.floor(Math.random() * (BODY_PARAGRAPH_MAX - BODY_PARAGRAPH_MIN + 1)) + BODY_PARAGRAPH_MIN;
+  const paragraphCount = (
+    Math.floor(Math.random() * (BODY_PARAGRAPH_MAX - BODY_PARAGRAPH_MIN + 1)) + BODY_PARAGRAPH_MIN
+  );
   return faker.lorem.paragraphs(paragraphCount);
 }
 
@@ -54,7 +55,7 @@ function formatDateForSQL(date) {
 function generateUserData(userId) {
   return {
     userId,
-    userName: getName()
+    userName: getName(),
   };
 }
 
@@ -62,7 +63,7 @@ function generateProjectData(ownerId, projectId) {
   return {
     ownerId,
     projectId,
-    projectName: getTitle()
+    projectName: getTitle(),
   };
 }
 
@@ -82,7 +83,7 @@ function getUpdateData(postedBy, projectId) {
     id: updateCount,
     body: getUpdateBody(),
     likes: getLikes(),
-    pubDate: formatDateForSQL(date)
+    pubDate: formatDateForSQL(date),
   };
 }
 
@@ -100,14 +101,14 @@ function generateAllSeedData(num) {
   const data = {
     users: [],
     projects: [],
-    updates: []
+    updates: [],
   };
 
   for (let i = 1; i <= num; i += 1) {
     data.users.push(generateUserData(i));
     data.projects.push(generateProjectData(i, i));
 
-    generateUpdates(i, i).forEach(update => {
+    generateUpdates(i, i).forEach((update) => {
       data.updates.push(update);
     });
   }
@@ -121,5 +122,5 @@ module.exports = {
   getUpdateBody,
   getLikes,
   generateDate,
-  randomNum
+  randomNum,
 };

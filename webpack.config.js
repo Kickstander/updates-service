@@ -3,7 +3,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 
 module.exports = env => {
-  const envFile = dotenv.config({ path: path.resolve(__dirname, `../.env`) }).parsed;
+  const envFile = dotenv.config({ path: path.resolve(__dirname, `./.env`) }).parsed;
   const envKeys = Object.keys(envFile).reduce((prev, next) => {
     // eslint-disable-next-line
     prev[`process.env.${next}`] = JSON.stringify(envFile[next]);
