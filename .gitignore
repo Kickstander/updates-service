@@ -28,4 +28,5 @@ public/bundle.js
 db.env.config
 .env
 data.csv
+config.js
 
