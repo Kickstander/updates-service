@@ -1,6 +1,5 @@
 const faker = require('faker');
 const fs = require('fs');
-const moment = require('moment');
 const { Readable } = require('stream');
 const {
   getLikes,
@@ -22,7 +21,7 @@ class GenDataStream extends Readable {
     this.update = '';
   }
 
-  _read(size) {
+  _read() {
     const generationInterval = this.completedProjects + 100;
     if (this.completedProjects === this.projects) {
       this.push(null);
@@ -35,10 +34,13 @@ class GenDataStream extends Readable {
       this.update = '';
       // Create a percentage status
       if ((this.completedProjects) % (this.projects / 10000) === 0) {
+        // eslint-disable-next-line no-console
         console.clear();
+        // eslint-disable-next-line no-console
         console.log(`${((this.completedProjects / this.projects) * 100).toFixed(2)}% complete...`);
         const seconds = ((new Date() - startTime) / 1000).toFixed(0);
         const minutes = (seconds / 60).toFixed(0);
+        // eslint-disable-next-line no-console
         console.log(`${minutes} minutes elapsed`);
       }
     }

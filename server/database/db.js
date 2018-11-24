@@ -1,12 +1,17 @@
 const initOptions = {
-  connect(client, dc, useCount) {
+  connect(client) {
     const cp = client.connectionParameters;
+    // eslint-disable-next-line no-console
     console.log('Connected to database', cp.database);
   },
+  query(e) {
+    // eslint-disable-next-line no-console
+    console.log('QUERY:', e.query);
+  }
 };
 const pgp = require('pg-promise')(initOptions);
 
-const { 
+const {
   DB_HOST,
   DB_USER,
   DB_PASSWORD,
