@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "css-loader": "^1.0.1",
@@ -31,7 +32,8 @@
     "pg-promise": "^8.5.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "redis": "^2.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

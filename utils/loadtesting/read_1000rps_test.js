@@ -9,7 +9,7 @@ const numberOfRecords = 10 * 1000000;
 const generateRandomProjectId = max => Math.ceil(Math.random() * max);
 const projectId = generateRandomProjectId(numberOfRecords);
 
-const url = `http://localhost:3002/api/projects/${projectId}/updates`;
+const url = `http://13.57.252.217/${projectId}`;
 
 export default function () {
   const res = http.get(url);
